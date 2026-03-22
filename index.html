@@ -295,6 +295,15 @@
   }
   .footer-legal a:hover { color: var(--teal); }
   .footer-copy { font-size: 12px; color: var(--text-muted); }
+  .footer-disclaimer-inline {
+    font-size: 11px; color: var(--text-muted);
+    opacity: 0.6; font-weight: 400;
+    max-width: 360px; line-height: 1.5;
+    text-align: right;
+  }
+  @media (max-width: 960px) {
+    .footer-disclaimer-inline { text-align: center; max-width: 100%; }
+  }
 
   @media (max-width: 960px) {
     .footer-inner { padding: 20px 24px; flex-direction: column; text-align: center; gap: 16px; }
@@ -344,7 +353,7 @@
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><div class="badge-dot"></div>Coming soon · iOS &amp; Android</div>
-      <h1>Turning patient answers into <span class="accent">clear patterns</span></h1>
+      <h1>Turning patient answers into<br><span class="accent">clear patterns</span></h1>
       <p class="hero-sub">A clinical decision support app built for licensed acupuncturists. Adaptive intake, instant TCM pattern recognition, and herbal formula guidance — right in your pocket.</p>
       <div class="hero-flow">
         <span class="flow-chip">📋 Adaptive intake</span>
@@ -416,7 +425,7 @@
         <div>
           <div class="feat-icon">🔄</div>
           <h3>Adaptive Dynamic Questionnaire</h3>
-          <p>Unlike static intake forms, Acuboost branches based on every answer. A patient reporting sharp, fixed arm pain unlocks a targeted blood stasis pathway — while another flows through an entirely different tree. Every session is unique.</p>
+          <p>Each question adapts to the previous answer, branching toward the most clinically relevant pathway. No two sessions follow the same path.</p>
           <div class="pills">
             <span class="pill pill-ext">Exterior Pattern</span>
             <span class="pill pill-pain">Pain Pattern</span>
@@ -576,6 +585,7 @@
         <a href="https://acuboostceu.com/privacy" target="_blank">Privacy Policy</a>
         <a href="https://acuboostceu.com/terms" target="_blank">Terms</a>
       </div>
+      <div class="footer-disclaimer-inline">For use by licensed healthcare providers only. Acuboost does not replace professional clinical judgment.</div>
       <div class="footer-copy">© 2026 Acuboost</div>
     </div>
   </div>
