@@ -260,15 +260,49 @@
   .w-success { display: none; color: var(--teal); font-size: 16px; font-weight: 600; margin-top: 8px; }
 
   /* ── FOOTER ── */
-  footer { background: var(--text); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
-  .footer-logo { font-weight: 800; font-size: 16px; color: white; letter-spacing: -0.3px; }
-  .footer-logo span { color: var(--teal); }
-  .footer-links { display: flex; gap: 28px; }
-  .footer-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--teal); }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.22); }
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .footer-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 22px 48px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-logo {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 800; font-size: 15px;
+    color: var(--text); letter-spacing: -0.3px;
+  }
+  .footer-center {
+    display: flex; gap: 24px; align-items: center;
+  }
+  .footer-center a {
+    font-size: 13px; font-weight: 500;
+    color: var(--text-muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-center a:hover { color: var(--teal); }
+  .footer-right {
+    display: flex; align-items: center; gap: 20px;
+  }
+  .footer-legal a {
+    font-size: 12px; font-weight: 400;
+    color: var(--text-muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-legal a:hover { color: var(--teal); }
+  .footer-copy { font-size: 12px; color: var(--text-muted); }
 
-  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .footer-inner { padding: 20px 24px; flex-direction: column; text-align: center; gap: 16px; }
+    .footer-center { flex-wrap: wrap; justify-content: center; }
+    .footer-right { flex-direction: column; gap: 10px; }
+  }
+
+/* ── RESPONSIVE ── */
   @media (max-width: 960px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
@@ -527,36 +561,22 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAgCAYAAACPb1E+AAAEZElEQVR4nLXYS6hWVRQH8N/9vusrwdBepFBgJZhEJdnToMfIBr0ga9Ak6DGQhgnlIIKCCioiSGig5cAiih5QZAaNMowcJBaK2QNJM6XEJPXe77tfg712Z99zz9XvPlqw2Ofsc/Za/71ee50zYPI0gDZGgjPdiDuwEkuwADPwD37Hd9iKT7E/1mQ5vSngGQOsXZtfgrX4Bt1QdiY+gg1YXshpTQVcC4O1ufPxELZgqAagE2BHavMjMV9upIv1ksUZa4AJ02zJlZtwuAZgWP9WzIA7xUb24trQUzdIX7Qcz2OPsRYrFU2Wh2M8jttD5xktOhA8F9sahE4HsCaZGejVgaOVwYwHkuTed7BIFdSLcXYIHG/9ZKkrWXCf5L3jJpHxi6RYzGVnOi1Zd/1robOvRCoze0NN0P/BOaGGsVSf3irdfMpYK3ZDYOaO/sHkNXWvZCOsbwLUDquVPDvmn6kJaKqDJYCJlKOm9T0cwoJ6Peo2AO/EeE8sbKkCHL6VTprDUkFegeslN5XvZcoJ15GScggPYmbt2QFcjFUZZCvQr8Ztcd2KBT3MweVxPxKKv8Y6fNmwsVulwF/WADRn6yN4M6634O24zuXvMzyGVXlhFrJJf7Vsc7FmwOjwyDE8D5/U1mU3HpNq8KzggbBc1jOEe6Uc2Jut2C74nIIviPGpQskPUldDlfVZRqs2P1MKhRJoN65vqIxrKU6oDomfpdA5FID7oieLXT4ccxlovURkoNnSiyXL5aYjJ9Q+PCBZbGfMnYzx1Vj7C3qDUpt1nipoS6XZOksLBV+pkiLH7IVSwuzAb8XzQfyER6WY6xhd0nIckqrGLBzFi6H7v9NmouVhUawbDDDLpGa2hz9wZczXXb+ukDEsufFkcLbuUVWDMT/uTw3i7rAkVWGuUy68XfwZc9mKa6TY/TvkrAnL5W67E9fPScnxLBbW5HfwQWxkT8heKPUIuwfxUQOofii74kiMc2M82PBuV7LsRnyMu3BNgN+Nz/F9vDtLsvJ1oWM7o0+ZfF/nVnCZLJnn40PJ5e9Lu6/HdqbTNQutgknfQD3cX1/8ipT2B2Is+YBUszYXQEuadxoAJdXrallb8wFymWTNQ5ifrZdd9yt2qU6c+k5vwaV4Gj/GXK4Kx4r7nvEp18wmasWztZLXNuOv08hqpI2h5I24n1E8m2oDnL25QrLiCalMjZHbFI/tANPGJVK3PCRZtQ50spTdfJb0Xd7DCzXwfVF++fEQsl9yPVMDWoJ4L2TvkqpFBj8pgW+pjrb8cZ9/HPQrtOz450htW0+qw8uKdyZM+SRp490Qelwq4KXAMmtLbhudzaQY3F4AXBnzU/pJUNbIl1TZvA33SXHVD12B11Xd0U5cNR0A60DhTimGMth9UsO7OpReJB1xS6SG+gl8YfQ5/rKqzk4LwJKywDnSeZ17x5JzOanPH1R175kaY3A6Pu7bqm+jFm6WWv6bpJPj3HjnmHRY7JB+/W2VvouyjHF//f0L+iznhzYKgRIAAAAASUVORK5CYII=" alt="Acuboost" style="height:22px;width:auto;filter:invert(1);opacity:0.85;">acuboost</div>
-        <p class="footer-tagline">Clinical decision support for licensed acupuncturists.</p>
-        <p class="footer-disclaimer">For use by licensed healthcare providers only. Acuboost is a clinical decision support tool and does not replace professional clinical judgment.</p>
-      </div>
-      <div class="footer-links-group">
-        <div class="footer-col">
-          <div class="footer-col-title">Product</div>
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#waitlist">Join Waitlist</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Education</div>
-          <a href="https://acuboostceu.com" target="_blank">AcuboostCEU</a>
-          <a href="https://acuboostceu.com/courses" target="_blank">Browse Courses</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Contact</div>
-          <a href="/cdn-cgi/l/email-protection#e68e838a8a89a68785938489899592879696c885898b"><span class="__cf_email__" data-cfemail="1c74797070735c7d7f697e73736f687d6c6c327f7371">[email&#160;protected]</span></a>
-        </div>
-      </div>
+    <div class="footer-logo">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAgCAYAAACPb1E+AAAEZElEQVR4nLXYS6hWVRQH8N/9vusrwdBepFBgJZhEJdnToMfIBr0ga9Ak6DGQhgnlIIKCCioiSGig5cAiih5QZAaNMowcJBaK2QNJM6XEJPXe77tfg712Z99zz9XvPlqw2Ofsc/Za/71ee50zYPI0gDZGgjPdiDuwEkuwADPwD37Hd9iKT7E/1mQ5vSngGQOsXZtfgrX4Bt1QdiY+gg1YXshpTQVcC4O1ufPxELZgqAagE2BHavMjMV9upIv1ksUZa4AJ02zJlZtwuAZgWP9WzIA7xUb24trQUzdIX7Qcz2OPsRYrFU2Wh2M8jttD5xktOhA8F9sahE4HsCaZGejVgaOVwYwHkuTed7BIFdSLcXYIHG/9ZKkrWXCf5L3jJpHxi6RYzGVnOi1Zd/1robOvRCoze0NN0P/BOaGGsVSf3irdfMpYK3ZDYOaO/sHkNXWvZCOsbwLUDquVPDvmn6kJaKqDJYCJlKOm9T0cwoJ6Peo2AO/EeE8sbKkCHL6VTprDUkFegeslN5XvZcoJ15GScggPYmbt2QFcjFUZZCvQr8Ztcd2KBT3MweVxPxKKv8Y6fNmwsVulwF/WADRn6yN4M6634O24zuXvMzyGVXlhFrJJf7Vsc7FmwOjwyDE8D5/U1mU3HpNq8KzggbBc1jOEe6Uc2Jut2C74nIIviPGpQskPUldDlfVZRqs2P1MKhRJoN65vqIxrKU6oDomfpdA5FID7oieLXT4ccxlovURkoNnSiyXL5aYjJ9Q+PCBZbGfMnYzx1Vj7C3qDUpt1nipoS6XZOksLBV+pkiLH7IVSwuzAb8XzQfyER6WY6xhd0nIckqrGLBzFi6H7v9NmouVhUawbDDDLpGa2hz9wZczXXb+ukDEsufFkcLbuUVWDMT/uTw3i7rAkVWGuUy68XfwZc9mKa6TY/TvkrAnL5W67E9fPScnxLBbW5HfwQWxkT8heKPUIuwfxUQOofii74kiMc2M82PBuV7LsRnyMu3BNgN+Nz/F9vDtLsvJ1oWM7o0+ZfF/nVnCZLJnn40PJ5e9Lu6/HdqbTNQutgknfQD3cX1/8ipT2B2Is+YBUszYXQEuadxoAJdXrallb8wFymWTNQ5ifrZdd9yt2qU6c+k5vwaV4Gj/GXK4Kx4r7nvEp18wmasWztZLXNuOv08hqpI2h5I24n1E8m2oDnL25QrLiCalMjZHbFI/tANPGJVK3PCRZtQ50spTdfJb0Xd7DCzXwfVF++fEQsl9yPVMDWoJ4L2TvkqpFBj8pgW+pjrb8cZ9/HPQrtOz450htW0+qw8uKdyZM+SRp490Qelwq4KXAMmtLbhudzaQY3F4AXBnzU/pJUNbIl1TZvA33SXHVD12B11Xd0U5cNR0A60DhTimGMth9UsO7OpReJB1xS6SG+gl8YfQ5/rKqzk4LwJKywDnSeZ17x5JzOanPH1R175kaY3A6Pu7bqm+jFm6WWv6bpJPj3HjnmHRY7JB+/W2VvouyjHF//f0L+iznhzYKgRIAAAAASUVORK5CYII=" alt="Acuboost" style="height:22px;width:auto;">
+      acuboost
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Acuboost · acuboostapp.com</div>
+    <div class="footer-center">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="https://acuboostceu.com" target="_blank">CEU Education</a>
+      <a href="mailto:hello@acuboostapp.com">Contact</a>
+    </div>
+    <div class="footer-right">
       <div class="footer-legal">
         <a href="https://acuboostceu.com/privacy" target="_blank">Privacy Policy</a>
-        <a href="https://acuboostceu.com/terms" target="_blank">Terms of Service</a>
+        <a href="https://acuboostceu.com/terms" target="_blank">Terms</a>
       </div>
+      <div class="footer-copy">© 2026 Acuboost</div>
     </div>
   </div>
 </footer>
